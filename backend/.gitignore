@@ -1,8 +1,14 @@
+.idea/
+.vscode/
 
 # Dependency directories
 node_modules/
 jspm_packages/
 
+
+# Upload images destination
+tmp/*
+!tmp/.gitkeep
 
 # Logs and locks
 logs
