@@ -16,10 +16,10 @@ import '@shared/container';
 
 const app = express();
 
-app.use(rateLimiter);
 app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
+app.use(rateLimiter);
 app.use(routes);
 
 app.use(errors());
@@ -32,6 +32,7 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
     });
   }
 
+  // eslint-disable-next-line
   console.error(err);
 
   return res.status(500).json({
@@ -41,5 +42,6 @@ app.use((err: Error, req: Request, res: Response, _: NextFunction) => {
 });
 
 app.listen(3333, () => {
+  // eslint-disable-next-line
   console.log('⚙ Server running or port 3333 !');
 });
