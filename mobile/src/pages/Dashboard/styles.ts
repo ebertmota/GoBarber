@@ -10,7 +10,6 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  /* Avoiding statusbar on IOS*/
   ${Platform.OS === 'ios' &&
   css`
     padding-top: ${getStatusBarHeight() + 24}px;
