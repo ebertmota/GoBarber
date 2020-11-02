@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { FiLogIn, FiMail } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
@@ -20,6 +20,8 @@ interface ForgotPasswordFormData {
 }
 
 const ForgotPassword: React.FC = () => {
+  const history = useHistory();
+
   const [loading, setLoading] = useState(false);
   const formRef = useRef<FormHandles>(null);
 
@@ -52,7 +54,8 @@ const ForgotPassword: React.FC = () => {
           description:
             'Verifique sua caixa de e-mail para confirmar a recuperação de senha.',
         });
-        // history.push('/dashboard');
+
+        history.push('/');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
